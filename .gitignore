@@ -1,0 +1,27 @@
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional: dotenv environment variables file
+.env
+
+# Optional: nyc test coverage
+coverage
+
+# Optional: Mac files
+.DS_Store
+
+# Optional: Windows files
+Thumbs.db
+
+# Optional: Yarn Integrity file
+.yarn-integrity
+
+# Package lock files (uncomment if you prefer not to track these)
+# package-lock.json
+# yarn.lock
