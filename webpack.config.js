@@ -28,4 +28,13 @@ module.exports = {
       filename: "index.html",
     }),
   ],
+  devServer: {
+    static: "./dist",
+    proxy: [
+      {
+        context: ["api"],
+        target: "http://localhost:3000",
+      },
+    ],
+  },
 };
