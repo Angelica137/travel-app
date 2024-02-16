@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../../dist", "index.html"));
 });
 
-app.get("api/searchCities", (req, res) => {
+app.get("/api/searchCities", (req, res) => {
   const input = req.query.q;
   const username = process.env.GEONAMES_USERNAME;
   const url = `http://api.geonames.org/searchJSON?formatted=true&q=${input}&maxRows=10&username=${username}&style=full&cities=cities1000`;
@@ -26,5 +26,5 @@ app.get("api/searchCities", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`My app listening at http://localhost${port}`);
+  console.log(`My app listening at http://localhost:${port}`);
 });
