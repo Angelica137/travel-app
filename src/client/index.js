@@ -1,4 +1,4 @@
-function searchCities() {
+window.searchCities = function () {
   const input = document.getElementById("location").value;
 
   if (input.length < 3) return;
@@ -12,7 +12,7 @@ function searchCities() {
       showSuggestions(data.geonames);
     })
     .catch((error) => console.error("Error fetching data: ", error));
-}
+};
 
 function showSuggestions(geonames) {
   const showSuggestionsList = document.getElementById("suggestions");
