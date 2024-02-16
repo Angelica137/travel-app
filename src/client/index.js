@@ -5,7 +5,7 @@ function searchCities() {
 
   if (input.length < 3) return;
 
-  const username = GEONAMES_USERNAME;
+  const username = process.env.GEONAMES_USERNAME;
   const url = `http://api.geonames.org/searchJSON?formatted=true&q=${input}&maxRows=10&username=${username}&style=full&cities=cities1000`;
 
   fetch(url)
