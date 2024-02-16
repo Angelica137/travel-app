@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const { response } = require("express");
 
 function searchCities() {
