@@ -1,14 +1,9 @@
-require("dotenv").config();
-
-const { response } = require("express");
-
 function searchCities() {
   const input = document.getElementById("location").value;
 
   if (input.length < 3) return;
 
-  const username = process.env.GEONAMES_USERNAME;
-  const url = `http://api.geonames.org/searchJSON?formatted=true&q=${input}&maxRows=10&username=${username}&style=full&cities=cities1000`;
+  const url = `/api/searchCities?q=${input}`;
 
   fetch(url)
     .then((response) => response.json())
