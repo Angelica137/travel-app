@@ -24,3 +24,7 @@ function showSuggestions(geonames) {
     showSuggestionsList.appendChild(option);
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("location").addEventListener("input", searchCities);
+});
