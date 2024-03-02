@@ -1,3 +1,7 @@
+// store fetched cities so we cna refer back to them to get the
+// let and long
+let geonamesData = [];
+
 window.searchCities = function () {
   const input = document.getElementById("location").value;
 
@@ -9,6 +13,7 @@ window.searchCities = function () {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+      geonamesData = data.geonames;
       showSuggestions(data.geonames);
     })
     .catch((error) => console.error("Error fetching data: ", error));
@@ -25,6 +30,31 @@ function showSuggestions(geonames) {
   });
 }
 
+function handleSubmit() {
+  const locationInput = document.getElementById("location").value;
+  const selectedPlace = geonamesData.find(
+    (place) => place.name === locationInput
+  );
+
+  if (!selectedPlace) {
+    console.error("Selected location not found in geonames data");
+    return;
+  }
+
+  const lat = selectedPlace.lat;
+  const lng = selectedPlace.lng;
+
+  const weatherUrl = `/api/weather?lat=${lat}&lng=${lng}`;
+
+  fetch(weatherUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Weather data", data);
+    })
+    .catch((error) => console.error("Error fetching weather data:", error));
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("location").addEventListener("input", searchCities);
+  document.getElementById("submitForm").addEventListener("click", handleSubmit);
 });
