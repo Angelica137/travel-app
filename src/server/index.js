@@ -34,6 +34,20 @@ app.get("/api/searchCities", async (req, res) => {
   }
 });
 
+app.get("/api/weather", async (req, res) => {
+  const { lat, lng } = req.query;
+  const username = process.env.GEONAMES_USERNAME;
+  const url = `http://api.geonames.org/findNearByWeatherJSON?lat=${lat}&lng=${lng}&username=${username}`;
+
+  try {
+    const data = await fetchData(url);
+    res.json(data);
+  } catch (error) {
+    console.error("Error fetching weather data from GeoNames API: ", error);
+    res.status(500).send("Error fetching weather data from GeoNames API");
+  }
+});
+
 app.listen(port, () => {
   console.log(`My app listening at http://localhost:${port}`);
 });
