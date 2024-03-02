@@ -1,13 +1,11 @@
 const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  mode: "development",
   entry: "./src/client/index.js",
-  output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
-  },
+
   module: {
     rules: [
       {
@@ -20,22 +18,18 @@ module.exports = {
           },
         },
       },
+      // add scss loaders
+      {
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/client/views/index.html",
+      template: "src/client/views/index.html",
       filename: "index.html",
     }),
+    new CleanWebpackPlugin(),
   ],
-  devServer: {
-    static: "./dist",
-    proxy: [
-      {
-        context: ["api"],
-        target: "http://localhost:3000",
-        changeOrigin: true,
-      },
-    ],
-  },
 };

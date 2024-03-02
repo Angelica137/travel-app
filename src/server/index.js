@@ -4,10 +4,11 @@ const cors = require("cors");
 const path = require("path");
 const express = require("express");
 const app = express();
+const port = 3000;
 
 app.use(cors);
-
-const port = 3000;
+app.use(express.json());
+app.use(express.static(path.join(__dirname, "../../dist")));
 
 async function fetchData(url) {
   const fetch = (await import("node-fetch")).default;
