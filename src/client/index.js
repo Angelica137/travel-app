@@ -50,8 +50,23 @@ function handleSubmit() {
     .then((response) => response.json())
     .then((data) => {
       console.log("Weather data", data);
+      displayWeather(data);
     })
     .catch((error) => console.error("Error fetching weather data:", error));
+}
+
+function displayWeather(data) {
+  const temperature = data.weatherObservation.temperature;
+  // results will display in div id="weather"
+  const weatherDiv = document.getElementById("weather");
+
+  // Clear previous weahter data
+  weatherDiv.innerHTML = "";
+
+  // Create an element to append the results to
+  const tempElement = document.createElement("p");
+  tempElement.textContent = `Temperature: ${temperature}°C`;
+  weatherDiv.appendChild(tempElement);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
