@@ -31,10 +31,20 @@ function showSuggestions(geonames) {
 }
 
 function handleSubmit() {
-  const locationInput = document.getElementById("location").value;
+  const locationInput = document
+    .getElementById("location")
+    .value.trim()
+    .toLowerCase();
+
+  // Log the input and data for debugging purposes
+  console.log("Input:", locationInput);
+  console.log("Data:", geonamesData);
+
   const selectedPlace = geonamesData.find(
-    (place) => place.name === locationInput
+    (place) => place.name.toLowerCase() === locationInput
   );
+
+  console.log("Selected Place: ", selectedPlace);
 
   if (!selectedPlace) {
     console.error("Selected location not found in geonames data");
