@@ -35,9 +35,10 @@ function handleSubmit() {
     .getElementById("location")
     .value.trim()
     .toLowerCase();
+  const travelDate = document.getElementById("travelDate").value;
 
   // Log the input and data for debugging purposes
-  console.log("Input:", locationInput);
+  console.log("Input: ", locationInput, "Travel Date: ", travelDate);
   console.log("Data:", geonamesData);
 
   const selectedPlace = geonamesData.find(
@@ -61,6 +62,7 @@ function handleSubmit() {
     .then((data) => {
       console.log("Weather data", data);
       displayWeather(data);
+      displayCountDown(travelDate);
     })
     .catch((error) => console.error("Error fetching weather data:", error));
 }
@@ -77,6 +79,22 @@ function displayWeather(data) {
   const tempElement = document.createElement("p");
   tempElement.textContent = `Temperature: ${temperature}°C`;
   weatherDiv.appendChild(tempElement);
+}
+
+function displayCountDown(travelDate) {
+  const currentDate = new Date();
+  const destinationDate = new Date(travelDate);
+  const timeDifference = destinationDate - currentDate;
+  const daysUntilTrip = Math.ceil(timeDifference / (1000 * 3600 * 24));
+
+  const countDownDiv = document.getElementById("countdown");
+  countDownDiv.innerHTML = `Days until trip: ${daysUntilTrip}`;
+
+  if (daysUntilTrip < 0) {
+    countDownDiv.innerHTML = "This date in the past";
+  } else if (daysUntilTrip === 0) {
+    countDownDiv.innerHTML = "Your trip is today!";
+  }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
