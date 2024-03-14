@@ -35,9 +35,10 @@ function handleSubmit() {
     .getElementById("location")
     .value.trim()
     .toLowerCase();
+  const travelDate = document.getElementById("date").value;
 
   // Log the input and data for debugging purposes
-  console.log("Input:", locationInput);
+  console.log("Input: ", locationInput, "Travel Date: ", date);
   console.log("Data:", geonamesData);
 
   const selectedPlace = geonamesData.find(
