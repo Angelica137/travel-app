@@ -35,13 +35,21 @@ app.get("/api/searchCities", async (req, res) => {
 });
 
 app.get("/api/weather", async (req, res) => {
-  const { lat, lng } = req.query;
+  const { lat, lng, date } = req.query;
   const apiKey = process.env.WEATHERBIT_API_KEY;
-  const url = `https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lng}&key=${apiKey}`;
+  const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lng}&key=${apiKey}`;
 
   try {
     const data = await fetchData(url);
-    res.json(data);
+    const forecasts = data.data;
+    const forecastForTravelDate = forecasts.find(
+      (forecast) => forecast.valid_date === date
+    );
+    if (forecastForTravelDate) {
+      res.json(forecastForTravelDate);
+    } else {
+      res.status(404).send("Forecast for the specified date not found.");
+    }
   } catch (error) {
     console.error("Error fetching weather data from Weatherbit API: ", error);
     res.status(500).send("Error fetching weather data from Weatherbit API");

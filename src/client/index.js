@@ -37,10 +37,6 @@ function handleSubmit() {
     .toLowerCase();
   const travelDate = document.getElementById("travelDate").value;
 
-  // Log the input and data for debugging purposes
-  console.log("Input: ", locationInput, "Travel Date: ", travelDate);
-  console.log("Data:", geonamesData);
-
   const selectedPlace = geonamesData.find(
     (place) => place.name.toLowerCase() === locationInput
   );
@@ -55,12 +51,12 @@ function handleSubmit() {
   const lat = selectedPlace.lat;
   const lng = selectedPlace.lng;
 
-  const weatherUrl = `/api/weather?lat=${lat}&lng=${lng}`;
+  const weatherUrl = `/api/weather?lat=${lat}&lng=${lng}&date=${travelDate}`;
 
   fetch(weatherUrl)
     .then((response) => response.json())
     .then((data) => {
-      console.log("Weather data", data);
+      console.log("Forecast data for travel date", data);
       displayWeather(data);
       displayCountDown(travelDate);
     })
