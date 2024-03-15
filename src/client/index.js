@@ -68,17 +68,30 @@ function handleSubmit() {
 }
 
 function displayWeather(data) {
-  const temperature = data.weatherObservation.temperature;
   // results will display in div id="weather"
   const weatherDiv = document.getElementById("weather");
 
   // Clear previous weahter data
   weatherDiv.innerHTML = "";
 
-  // Create an element to append the results to
-  const tempElement = document.createElement("p");
-  tempElement.textContent = `Temperature: ${temperature}°C`;
-  weatherDiv.appendChild(tempElement);
+  // Check if forecast exists
+  if (data && data.data && data.data.length > 0) {
+    const forecast = data.data[0];
+    const description = forecast.weather.description;
+    const temperature = forecast.temp;
+
+    // Create an element to append the results to
+    const descElement = document.createElement("p");
+    descElement.textContent = `Weather: ${description}°C`;
+    weatherDiv.appendChild(tempElement);
+
+    // Create an element to append the results to
+    const tempElement = document.createElement("p");
+    tempElement.textContent = `Weather: ${temperature}°C`;
+    weatherDiv.appendChild(tempElement);
+  } else {
+    weatherDiv.innerHTML = "Weather data is not available";
+  }
 }
 
 function displayCountDown(travelDate) {
