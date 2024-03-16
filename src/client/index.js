@@ -92,6 +92,19 @@ function displayWeather(data) {
   }
 }
 
+function displayDestination(data) {
+  const destinationDiv = document.getElementById("destination");
+  destinationDiv.innerHTML = "";
+
+  if (data && data.hits && data.hits.length > 0) {
+    const destination = document.createElement("img");
+    imgElement.src = data.hits[0].webformatURL;
+    destinationDiv.appendChild(imgElement);
+  } else {
+    destinationDiv.innerHTML = "Displaying image failed";
+  }
+}
+
 function displayCountDown(travelDate) {
   const currentDate = new Date();
   const destinationDate = new Date(travelDate);

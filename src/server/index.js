@@ -58,6 +58,21 @@ app.get("/api/weather", async (req, res) => {
   }
 });
 
+app.get("/api/destination", async (req, res) => {
+  const { destination } = req.query;
+  console.log("Image getched");
+  const apiKey = process.env.PIXABAY_API_KEY;
+  const url = `https://pixabay.com/api/?key=${apiKey}&q=${destination}&image_type=photo`;
+
+  try {
+    const data = await fetchData(url);
+    res.json(data);
+  } catch (error) {
+    console.error("Error fetching data from Pixabay: ", error);
+    res.status(500).send("Error fetching data from Pixabay:");
+  }
+});
+
 app.listen(port, () => {
   console.log(`My app listening at http://localhost:${port}`);
 });
