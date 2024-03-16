@@ -1,8 +1,17 @@
-#logo {
+.logo {
 	color: #000;
 	font-family: Modak;
 	font-size: 40px;
 	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	padding: 16px;
+}
+
+h1 {
+	font-size: 40px;
+	font-family: "Nunito Sans";
+	font-size: normal;
 	font-weight: 400;
 	line-height: normal;
 }
