@@ -62,6 +62,16 @@ function handleSubmit() {
       displayCountDown(travelDate);
     })
     .catch((error) => console.error("Error fetching weather data:", error));
+
+  const destinationUrl = `/api/destination?destination=${encodeURIComponent(
+    locationInput
+  )}`;
+  fetch(destinationUrl)
+    .then((response) => response.json())
+    .then((data) => displayDestination(data))
+    .catch((error) =>
+      console.error("error fetching destination image: ", error)
+    );
 }
 
 function displayWeather(data) {
@@ -97,7 +107,7 @@ function displayDestination(data) {
   destinationDiv.innerHTML = "";
 
   if (data && data.hits && data.hits.length > 0) {
-    const destination = document.createElement("img");
+    const imgElement = document.createElement("img");
     imgElement.src = data.hits[0].webformatURL;
     destinationDiv.appendChild(imgElement);
   } else {
