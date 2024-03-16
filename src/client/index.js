@@ -1,3 +1,5 @@
+import "../styles/main.css";
+
 // store fetched cities so we cna refer back to them to get the
 // let and long
 let geonamesData = [];
