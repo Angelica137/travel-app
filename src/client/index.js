@@ -36,6 +36,7 @@ function handleSubmit() {
     .value.trim()
     .toLowerCase();
   const travelDate = document.getElementById("travelDate").value;
+  console.log("date from client:", travelDate);
 
   const selectedPlace = geonamesData.find(
     (place) => place.name.toLowerCase() === locationInput
