@@ -36,14 +36,12 @@ app.get("/api/searchCities", async (req, res) => {
 
 app.get("/api/weather", async (req, res) => {
   const { lat, lng, date } = req.query;
-  console.log("Date from server: ", date);
   const apiKey = process.env.WEATHERBIT_API_KEY;
   const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lng}&key=${apiKey}`;
 
   try {
     const data = await fetchData(url);
     const forecasts = data.data;
-    console.log(forecasts);
     const forecastForTravelDate = forecasts.find(
       (forecast) => forecast.valid_date === date
     );
@@ -60,7 +58,7 @@ app.get("/api/weather", async (req, res) => {
 
 app.get("/api/destination", async (req, res) => {
   const { destination } = req.query;
-  console.log("Image getched");
+  console.log("Image fetched");
   const apiKey = process.env.PIXABAY_API_KEY;
   const url = `https://pixabay.com/api/?key=${apiKey}&q=${destination}&image_type=photo`;
 
