@@ -33,17 +33,18 @@
 	justify-content: space-between;
 	align-items: center;
 	margin: 0;
+	background-color: #ffffff;
 }
 
 .form-content {
 	grid-area: main;
 }
 
-.image-content {
+.destination {
 	grid-area: sd;
 }
 
-.footer {
+footer {
 	grid-area: ft;
 	bottom: 0;
 	display: flex;

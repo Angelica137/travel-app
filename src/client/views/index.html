@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>My travel app</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -9,14 +10,13 @@
       href="https://fonts.googleapis.com/css2?family=Modak&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
       rel="stylesheet"
     />
-    <title>My travel app</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
     <link />
   </head>
   <body>
-    <div class="grid-container">
-      <header class="logo">Travel planner</header>
-      <main>
+    <div class="grid-container-main">
+      <header class="header" id="logo">Travel planner</header>
+      <main class="form-content">
         <h1>Let's plan your next trip</h1>
         <form>
           <div>
@@ -42,9 +42,10 @@
           </div>
           <div id="countdown"></div>
           <div id="weather"></div>
-          <div id="destination"></div>
         </form>
       </main>
+      <div class="destination"></div>
+
       <footer>This is a footer</footer>
     </div>
     <!--JS lives here-->
