@@ -35,16 +35,26 @@ app.get("/api/searchCities", async (req, res) => {
 });
 
 app.get("/api/weather", async (req, res) => {
-  const { lat, lng } = req.query;
-  const username = process.env.GEONAMES_USERNAME;
-  const url = `http://api.geonames.org/findNearByWeatherJSON?lat=${lat}&lng=${lng}&username=${username}`;
+  const { lat, lng, date } = req.query;
+  console.log("Date from server: ", date);
+  const apiKey = process.env.WEATHERBIT_API_KEY;
+  const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lng}&key=${apiKey}`;
 
   try {
     const data = await fetchData(url);
-    res.json(data);
+    const forecasts = data.data;
+    console.log(forecasts);
+    const forecastForTravelDate = forecasts.find(
+      (forecast) => forecast.valid_date === date
+    );
+    if (forecastForTravelDate) {
+      res.json(forecastForTravelDate);
+    } else {
+      res.status(404).send("Forecast for the specified date not found.");
+    }
   } catch (error) {
-    console.error("Error fetching weather data from GeoNames API: ", error);
-    res.status(500).send("Error fetching weather data from GeoNames API");
+    console.error("Error fetching weather data from Weatherbit API: ", error);
+    res.status(500).send("Error fetching weather data from Weatherbit API");
   }
 });
 

@@ -36,10 +36,7 @@ function handleSubmit() {
     .value.trim()
     .toLowerCase();
   const travelDate = document.getElementById("travelDate").value;
-
-  // Log the input and data for debugging purposes
-  console.log("Input: ", locationInput, "Travel Date: ", travelDate);
-  console.log("Data:", geonamesData);
+  console.log("date from client:", travelDate);
 
   const selectedPlace = geonamesData.find(
     (place) => place.name.toLowerCase() === locationInput
@@ -55,12 +52,12 @@ function handleSubmit() {
   const lat = selectedPlace.lat;
   const lng = selectedPlace.lng;
 
-  const weatherUrl = `/api/weather?lat=${lat}&lng=${lng}`;
+  const weatherUrl = `/api/weather?lat=${lat}&lng=${lng}&date=${travelDate}`;
 
   fetch(weatherUrl)
     .then((response) => response.json())
     .then((data) => {
-      console.log("Weather data", data);
+      console.log("Forecast data for travel date", data);
       displayWeather(data);
       displayCountDown(travelDate);
     })
@@ -68,17 +65,31 @@ function handleSubmit() {
 }
 
 function displayWeather(data) {
-  const temperature = data.weatherObservation.temperature;
   // results will display in div id="weather"
   const weatherDiv = document.getElementById("weather");
 
   // Clear previous weahter data
   weatherDiv.innerHTML = "";
 
-  // Create an element to append the results to
-  const tempElement = document.createElement("p");
-  tempElement.textContent = `Temperature: ${temperature}°C`;
-  weatherDiv.appendChild(tempElement);
+  // Check if forecast exists
+  if (
+    data &&
+    data.temp !== undefined &&
+    data.weather &&
+    data.weather.description
+  ) {
+    // Display temperature, create element to append data to
+    const tempElement = document.createElement("p");
+    tempElement.textContent = `Temperature: ${data.temp}°C`;
+    weatherDiv.appendChild(tempElement);
+
+    // Create an element to append conditions to
+    const conditionsElement = document.createElement("p");
+    conditionsElement.textContent = `Condition: ${data.weather.description}`;
+    weatherDiv.appendChild(conditionsElement);
+  } else {
+    weatherDiv.innerHTML = "Weather data is not available";
+  }
 }
 
 function displayCountDown(travelDate) {
