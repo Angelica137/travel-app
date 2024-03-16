@@ -72,20 +72,21 @@ function displayWeather(data) {
   weatherDiv.innerHTML = "";
 
   // Check if forecast exists
-  if (data && data.data && data.data.length > 0) {
-    const forecast = data.data[0];
-    const description = forecast.weather.description;
-    const temperature = forecast.temp;
-
-    // Create an element to append the results to
-    const descElement = document.createElement("p");
-    descElement.textContent = `Weather: ${description}°C`;
-    weatherDiv.appendChild(tempElement);
-
-    // Create an element to append the results to
+  if (
+    data &&
+    data.temp !== undefined &&
+    data.weather &&
+    data.weather.description
+  ) {
+    // Display temperature, create element to append data to
     const tempElement = document.createElement("p");
-    tempElement.textContent = `Weather: ${temperature}°C`;
+    tempElement.textContent = `Temperature: ${data.temp}°C`;
     weatherDiv.appendChild(tempElement);
+
+    // Create an element to append conditions to
+    const conditionsElement = document.createElement("p");
+    conditionsElement.textContent = `Condition: ${data.weather.description}`;
+    weatherDiv.appendChild(conditionsElement);
   } else {
     weatherDiv.innerHTML = "Weather data is not available";
   }
