@@ -4,9 +4,9 @@
 	grid-gap: 24px;
 	padding: 16px;
 	grid-template-areas:
-	"hd hd hd hd hd hd hd hd hd hd hd hd"
+	"hd hd hd hd hd hd sd sd sd sd sd sd"
 	"main main main main main main sd sd sd sd sd sd"
-	"ft ft ft ft ft ft ft ft ft ft ft ft";
+	"ft ft ft ft ft ft sd sd sd sd sd sd";
 }
 
 /* Mobile styles */
@@ -41,17 +41,17 @@
 }
 
 .side-content {
-	grid-area: sd;
+  grid-area: sd;
+  background-color: #E7A5C1; /* Placeholder background color */
 }
 
 footer {
 	grid-area: ft;
 	bottom: 0;
 	display: flex;
-	padding: 36px;
+	padding: 16px;
 	text-align: center;
 	margin-top: auto;
-	background: #4860A6;
-	border: 2px solid black;
-	border-radius: 8px;
+	background: #ffffff;
+	font-size: 20px;
 }
