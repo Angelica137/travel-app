@@ -79,9 +79,11 @@ function handleSubmit() {
 
 function displayWeather(data) {
   // results will display in div id="weather"
+  const weatherTitle = document.getElementById("weather-title");
   const weatherDiv = document.getElementById("weather");
 
   // Clear previous weahter data
+  weatherTitle.innerHTML = "";
   weatherDiv.innerHTML = "";
 
   // Check if forecast exists
@@ -91,14 +93,19 @@ function displayWeather(data) {
     data.weather &&
     data.weather.description
   ) {
+    // display section title
+    const titleElement = document.createElement("p");
+    titleElement.textContent = "The weather will be:";
+    weatherTitle.appendChild(titleElement);
+
     // Display temperature, create element to append data to
     const tempElement = document.createElement("p");
-    tempElement.textContent = `Temperature: ${data.temp}°C`;
+    tempElement.textContent = `${data.temp}°C`;
     weatherDiv.appendChild(tempElement);
 
     // Create an element to append conditions to
     const conditionsElement = document.createElement("p");
-    conditionsElement.textContent = `Condition: ${data.weather.description}`;
+    conditionsElement.textContent = `${data.weather.description}`;
     weatherDiv.appendChild(conditionsElement);
   } else {
     weatherDiv.innerHTML = "Weather data is not available";

@@ -41,3 +41,14 @@ body {
 	line-height: normal;
 	margin: 48px 16px;
 }
+
+.data-display-light {
+	color: var(--Primary---main, #000);
+	text-align: left;
+	font-family: Nunito Sans;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	margin: 48px 16px;
+}
