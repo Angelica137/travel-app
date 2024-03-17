@@ -6,9 +6,9 @@
 	padding: 16px;
 	min-height: 100vh;
 	grid-template-areas:
-	"hd hd hd hd hd hd sd sd sd sd sd sd"
-	"main main main main main main sd sd sd sd sd sd"
-	"ft ft ft ft ft ft sd sd sd sd sd sd";
+	"hd hd hd hd dd sd sd sd sd sd sd sd"
+	"main main main main main sd sd sd sd sd sd sd"
+	"ft ft ft ft ft sd sd sd sd sd sd sd";
 }
 
 /* Mobile styles */
@@ -45,6 +45,8 @@
 .side-content {
   grid-area: sd;
   background-color: #E7A5C1; /* Placeholder background color */
+	display: flex;
+  justify-content: center; /* Horizontally center */
 }
 
 footer {
