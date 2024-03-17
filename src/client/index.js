@@ -91,7 +91,8 @@ function displayWeather(data) {
     data &&
     data.temp !== undefined &&
     data.weather &&
-    data.weather.description
+    data.weather.description &&
+    data.weather.icon
   ) {
     // display section title
     const titleElement = document.createElement("p");
@@ -102,6 +103,17 @@ function displayWeather(data) {
     const tempElement = document.createElement("p");
     tempElement.textContent = `${data.temp}°C`;
     weatherDiv.appendChild(tempElement);
+
+    // icon
+    const iconCode = data.weather.icon;
+    const iconUrl = `https://www.weatherbit.io/static/img/icons/${iconCode}.png`;
+
+    const iconImg = document.createElement("img");
+    iconImg.src = iconUrl;
+    iconImg.alt = "Weather Icon";
+    iconImg.className = "weather-icon";
+
+    weatherDiv.appendChild(iconImg);
 
     // Create an element to append conditions to
     const conditionsElement = document.createElement("p");
