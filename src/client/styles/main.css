@@ -1,6 +1,12 @@
 @import url("./layout.css");
 @import url("./typography.css");
 
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+
 input {
 	display: flex;
 height: 40px;
@@ -36,4 +42,12 @@ line-height: normal;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.card-media {
+	width: 595px;
+height: 651px;
+border-radius: 24px;
+background: #FFF;
+padding-top: 120px;
 }

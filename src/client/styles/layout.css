@@ -1,8 +1,10 @@
 .grid-container-main {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: auto 1fr auto;
 	grid-gap: 24px;
 	padding: 16px;
+	min-height: 100vh;
 	grid-template-areas:
 	"hd hd hd hd hd hd sd sd sd sd sd sd"
 	"main main main main main main sd sd sd sd sd sd"
