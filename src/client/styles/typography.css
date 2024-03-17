@@ -1,3 +1,4 @@
+/* Base styles */
 #logo {
 	color: #000;
 	font-family: Modak;
@@ -51,4 +52,62 @@ body {
 	font-weight: 400;
 	line-height: normal;
 	margin: 48px 16px;
+}
+
+/* Mobile styles */
+@media(max-width: 767px) {
+	#logo {
+		color: #000;
+		font-family: Modak;
+		font-size: 36px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		padding: 16px;
+	}
+	
+	h1 {
+		font-size: 28px;
+		font-family: Nunito Sans;
+		font-size: normal;
+		font-weight: 400;
+		line-height: normal;
+	}
+	
+	h2 {
+		font-size: 24px;
+		font-family: Nunito Sans;
+		font-size: normal;
+		font-weight: 400;
+		line-height: normal;
+	}
+	
+	body {
+		font-family: Nunito Sans;
+		font-size: normal;
+		font-weight: 400;
+		line-height: normal;
+	}
+	
+	.data-display {
+		color: var(--Primary---main, #000);
+		text-align: left;
+		font-family: Nunito Sans;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+		margin: 48px 16px;
+	}
+	
+	.data-display-light {
+		color: var(--Primary---main, #000);
+		text-align: left;
+		font-family: Nunito Sans;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		margin: 48px 16px;
+	}
 }
