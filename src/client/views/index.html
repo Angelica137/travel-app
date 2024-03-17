@@ -1,47 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>My travel app</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My travel app</title>
-    <!--Awesome css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Modak&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
     <link />
   </head>
   <body>
-    <header>
-      <h1>Let's plan your next trip</h1>
-    </header>
-    <main>
-      <form>
-        <div>
-          <label for="location">Where are you travelling?</label>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            placeholder="Enter destination"
-            list="suggestions"
-            required
-          />
-          <datalist id="suggestions">
-            <!--drop down with suggestions should show here-->
-          </datalist>
-        </div>
-        <div>
-          <label for="date">When are you travelling?</label>
-          <input type="date" id="travelDate" name="date" required />
-        </div>
-        <div>
-          <button type="button" id="submitForm">Submit</button>
-        </div>
-        <div id="countdown"></div>
-        <div id="weather"></div>
-        <div id="destination"></div>
-      </form>
-    </main>
-    <footer>This is a footer</footer>
-    <!--JS lives here-->
+    <div class="grid-container-main">
+      <header class="header" id="logo">Travel planner</header>
+      <div class="form-content">
+        <h1>Let's plan your next trip</h1>
+        <form>
+          <div>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              placeholder="Enter destination"
+              list="suggestions"
+              required
+            />
+            <datalist id="suggestions">
+              <!--drop down with suggestions should show here-->
+            </datalist>
+          </div>
+          <div>
+            <input type="date" id="travelDate" name="date" required />
+          </div>
+          <div>
+            <button type="button" id="submitForm" class="text-button">
+              GO
+            </button>
+          </div>
+          <div id="countdown" class="data-display"></div>
+					<div id="weather-title" class="data-display"></div>
+          <div id="weather" class="data-display-light"></div>
+        </form>
+      </div>
 
+      <div class="side-content">
+        <div id="destination" class="card-media">
+          <img src="images/a4e2cae49406d354171d954f79bbf4eb.jpg"
+          alt="holiday"></img>
+        </div>
+      </div>
+
+      <footer>Copy Right Angelica Beristain 2024</footer>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>

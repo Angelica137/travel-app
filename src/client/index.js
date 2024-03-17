@@ -1,3 +1,6 @@
+import "./styles/main.css";
+import "../images/a4e2cae49406d354171d954f79bbf4eb.jpg";
+
 // store fetched cities so we cna refer back to them to get the
 // let and long
 let geonamesData = [];
@@ -76,9 +79,11 @@ function handleSubmit() {
 
 function displayWeather(data) {
   // results will display in div id="weather"
+  const weatherTitle = document.getElementById("weather-title");
   const weatherDiv = document.getElementById("weather");
 
   // Clear previous weahter data
+  weatherTitle.innerHTML = "";
   weatherDiv.innerHTML = "";
 
   // Check if forecast exists
@@ -88,14 +93,19 @@ function displayWeather(data) {
     data.weather &&
     data.weather.description
   ) {
+    // display section title
+    const titleElement = document.createElement("p");
+    titleElement.textContent = "The weather will be:";
+    weatherTitle.appendChild(titleElement);
+
     // Display temperature, create element to append data to
     const tempElement = document.createElement("p");
-    tempElement.textContent = `Temperature: ${data.temp}°C`;
+    tempElement.textContent = `${data.temp}°C`;
     weatherDiv.appendChild(tempElement);
 
     // Create an element to append conditions to
     const conditionsElement = document.createElement("p");
-    conditionsElement.textContent = `Condition: ${data.weather.description}`;
+    conditionsElement.textContent = `${data.weather.description}`;
     weatherDiv.appendChild(conditionsElement);
   } else {
     weatherDiv.innerHTML = "Weather data is not available";
@@ -122,7 +132,7 @@ function displayCountDown(travelDate) {
   const daysUntilTrip = Math.ceil(timeDifference / (1000 * 3600 * 24));
 
   const countDownDiv = document.getElementById("countdown");
-  countDownDiv.innerHTML = `Days until trip: ${daysUntilTrip}`;
+  countDownDiv.innerHTML = `${daysUntilTrip} days to go!`;
 
   if (daysUntilTrip < 0) {
     countDownDiv.innerHTML = "This date in the past";

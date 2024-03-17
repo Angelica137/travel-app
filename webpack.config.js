@@ -2,9 +2,15 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: "./src/client/index.js",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "/",
+    filename: "[name].[contenthash].js",
+  },
 
   module: {
     rules: [
@@ -19,9 +25,25 @@ module.exports = {
         },
       },
       // add scss loaders
+      // {
+      //   test: /\.scss$/,
+      //   use: ["style-loader", "css-loader", "sass-loader"],
+      // },
       {
-        test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i, // Corrected typo 'gof' to 'gif' and 'jpeg?g' to 'jpe?g'
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "images", // Removed the leading slash
+            },
+          },
+        ],
       },
     ],
   },
@@ -31,5 +53,6 @@ module.exports = {
       filename: "index.html",
     }),
     new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(),
   ],
 };
