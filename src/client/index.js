@@ -1,4 +1,5 @@
 import "./styles/main.css";
+import "../images/a4e2cae49406d354171d954f79bbf4eb.jpg";
 
 // store fetched cities so we cna refer back to them to get the
 // let and long

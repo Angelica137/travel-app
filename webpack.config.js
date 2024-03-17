@@ -6,6 +6,11 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: "./src/client/index.js",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "/",
+    filename: "[name].[contenthash].js",
+  },
 
   module: {
     rules: [
@@ -29,13 +34,13 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
-        test: /\.(png|jpeg?g|gof)$/i,
+        test: /\.(png|jpe?g|gif)$/i, // Corrected typo 'gof' to 'gif' and 'jpeg?g' to 'jpe?g'
         use: [
           {
             loader: "file-loader",
             options: {
               name: "[name].[ext]",
-              outPath: "images",
+              outputPath: "images", // Removed the leading slash
             },
           },
         ],
