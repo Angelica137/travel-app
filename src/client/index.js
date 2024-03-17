@@ -125,7 +125,7 @@ function displayCountDown(travelDate) {
   const daysUntilTrip = Math.ceil(timeDifference / (1000 * 3600 * 24));
 
   const countDownDiv = document.getElementById("countdown");
-  countDownDiv.innerHTML = `Days until trip: ${daysUntilTrip}`;
+  countDownDiv.innerHTML = `${daysUntilTrip} days to go!`;
 
   if (daysUntilTrip < 0) {
     countDownDiv.innerHTML = "This date in the past";

@@ -9,19 +9,19 @@ html, body {
 
 input {
 	display: flex;
-height: 40px;
-padding: 0px 24px;
-width: 237px;
-justify-content: center;
-align-items: center;
-gap: 16px;
-border-radius: 40px;
-border: 2px solid #515151;
-margin: 24px 0px;
-font-size: 16px;
-font-family: Nunito Sans;
-font-size: normal;
-font-weight: 400;
+  height: 40px;
+  padding: 0px 24px;
+  width: 237px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border-radius: 40px;
+  border: 2px solid #000000;
+  margin: 24px 0px;
+  font-size: 16px;
+  font-family: Nunito Sans;
+  font-size: normal;
+  font-weight: 400;
 line-height: normal;
 }
 
