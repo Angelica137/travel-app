@@ -46,11 +46,11 @@ line-height: normal;
 
 .card-media {
 	width: 595px;
-height: 651px;
-border-radius: 24px;
-background: #FFF;
-margin-top: 120px;
-overflow: hidden;
+  height: 651px;
+  border-radius: 24px;
+  background: #FFF;
+  margin-top: 120px;
+  overflow: hidden;
 }
 
 .card-media img {
@@ -60,3 +60,29 @@ overflow: hidden;
   object-position: center;
   border-radius: 24px;
 }
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+@media(min-width: 768px) and (max-width: 1023px) {
+	.card-media {
+		width: 320px;
+	}
+}
+
+@media(max-width: 767px) {
+	.card-media {
+		width: 340px;
+		height: auto;
+		margin: 24px;
+	}
+
+	.card-media img {
+		max-height: 300px;
+		object-position: center;
+	}
+}
+
