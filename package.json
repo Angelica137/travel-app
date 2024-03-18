@@ -10,6 +10,9 @@
     "dev:server": "nodemon src/server/index.js",
     "test": "jest"
   },
+	"jest": {
+		"setupFiles": ["<rootDir>/jest.setup.js"]
+	},
   "keywords": [],
   "author": "",
   "license": "ISC",
