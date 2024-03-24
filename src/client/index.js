@@ -159,3 +159,4 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 module.exports = { searchCities };
+module.exports = { displayWeather };
