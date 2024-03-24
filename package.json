@@ -10,19 +10,18 @@
     "dev:server": "nodemon src/server/index.js",
     "test": "jest"
   },
-	"jest": {
-		"moduleNameMapper": {
-			"\\.(css|less)$": "identity-obj-proxy",
-			"\\.(jpg|jpeg|png|gif|webp|svg)$": "jest-transform-stub"
-		},
-		"transformIgnorePatterns": [
-			"/node_modules/"
-		],
-		"testEnvironment": "jsdom",
-		"setupFiles": [
-			"<rootDir>/jest.setup.js"
-		]
-	},
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less)$": "identity-obj-proxy",
+      "\\.(jpg|jpeg|png|gif|webp|svg)$": "jest-transform-stub"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testEnvironment": "jsdom",
+		"setupFilesAfterEnv": ["<rootDir>/jest.setup.js"]
+
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

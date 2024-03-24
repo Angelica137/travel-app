@@ -1,9 +1,12 @@
-require("jest-fetch-mock").enableMocks();
+const { searchCities, showSuggestions } = require("../client/index.js");
 
 describe("searchCities", () => {
   beforeEach(() => {
     fetch.resetMocks();
-    document.body.innerHTML = `<input id="location" value="New York" /><datalist id="suggestions"></datalist>`;
+    document.body.innerHTML = `
+      <input id="location" value="New York" />
+      <datalist id="suggestions"></datalist>
+    `;
   });
 
   it("fetches cities and updates suggestions", async () => {
@@ -13,17 +16,18 @@ describe("searchCities", () => {
       })
     );
 
-    const searchCities = require("../client/index.js").searchCities;
-
-    // Call the searchCities function or simulate an input event
-    // Example: document.getElementById("location").dispatchEvent(new Event('input'));
+    // Call the searchCities function directly
     await searchCities();
 
-    // Check if the function was called and log the result
-    console.log(document.getElementById("suggestions").innerHTML);
+    // We must wait for the state and the DOM to be updated,
+    // setTimeout with '0' will push the callback at the end of the call stack allowing the promises to resolve.
+    await new Promise((resolve) => setTimeout(resolve, 0));
 
     const suggestionsList = document.getElementById("suggestions");
+
+    // Assertions
+    expect(fetch).toHaveBeenCalledTimes(1);
     expect(suggestionsList.childNodes.length).toBe(1);
-    expect(suggestionsList.firstChild.value).toBe("New York");
+    expect(suggestionsList.childNodes[0].value).toBe("New York");
   });
 });

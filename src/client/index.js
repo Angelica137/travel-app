@@ -157,3 +157,5 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("location").addEventListener("input", searchCities);
   document.getElementById("submitForm").addEventListener("click", handleSubmit);
 });
+
+module.exports = { searchCities };
