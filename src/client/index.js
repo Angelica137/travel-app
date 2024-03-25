@@ -158,4 +158,4 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("submitForm").addEventListener("click", handleSubmit);
 });
 
-module.exports = { searchCities, displayWeather };
+module.exports = { searchCities, displayWeather, displayDestination };
