@@ -128,6 +128,8 @@ function displayDestination(data) {
   const destinationDiv = document.getElementById("destination");
   destinationDiv.innerHTML = "";
 
+  // Check is there is an image
+  // Future improvement - can the image be randomised
   if (data && data.hits && data.hits.length > 0) {
     const imgElement = document.createElement("img");
     imgElement.src = data.hits[0].webformatURL;
