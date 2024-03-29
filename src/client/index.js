@@ -149,7 +149,7 @@ function displayCountDown(travelDate) {
   countDownDiv.innerHTML = `${daysUntilTrip} days to go!`;
 
   if (daysUntilTrip < 0) {
-    countDownDiv.innerHTML = "This date in the past";
+    countDownDiv.innerHTML = "This date is in the past";
   } else if (daysUntilTrip === 0) {
     countDownDiv.innerHTML = "Your trip is today!";
   }
@@ -160,4 +160,9 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("submitForm").addEventListener("click", handleSubmit);
 });
 
-module.exports = { searchCities, displayWeather, displayDestination };
+module.exports = {
+  searchCities,
+  displayWeather,
+  displayDestination,
+  displayCountDown,
+};
