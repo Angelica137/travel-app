@@ -48,13 +48,24 @@ describe("handleSubmit", () => {
     );
 
     it("Updates the DOM to show countdown", () => {
+      // Check if the countdown div was updated (example assertion, adjust as needed based on actual implementation)
+      const countdownDiv = document.getElementById("countdown");
+      //expect(countdownDiv.innerHTML).toContain("days to go!");
+    });
+
+    it("Updates the DOM to isplay the weather", () => {
       // Directly check the display functions were called if needed
       // expect(displayCountDown).toHaveBeenCalled();
       // expect(displayWeather).toHaveBeenCalled();
 
       // Check if the countdown div was updated (example assertion, adjust as needed based on actual implementation)
-      const countdownDiv = document.getElementById("countdown");
-      //expect(countdownDiv.innerHTML).toContain("days to go!");
+      const weatherDiv = document.getElementById("weather");
+      //expect(weatehrDiv.innerHTML).toContain("Sunny");
     });
   });
 });
+
+// Try
+// Directly check the display functions were called if needed
+// expect(displayCountDown).toHaveBeenCalled();
+// expect(displayWeather).toHaveBeenCalled();
