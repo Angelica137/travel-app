@@ -166,4 +166,5 @@ module.exports = {
   displayDestination,
   displayCountDown,
   showSuggestions,
+  handleSubmit,
 };
