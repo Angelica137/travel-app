@@ -26,4 +26,13 @@ describe("showSuggestions", () => {
       expect(suggestionsList.children[index].value).toBe(geoname.name);
     });
   });
+
+  it("clears previous suggestions before adding new ones", () => {
+    showSuggestions([{ name: "Madrid" }]);
+    showSuggestions([{ name: "London" }]);
+
+    const suggesionsList = document.getElementById("suggestions");
+    expect(suggesionsList.children.length).toBe(1);
+    expect(suggesionsList.children[0].value).toBe("London");
+  });
 });
