@@ -1,4 +1,3 @@
-const { default: JSDOMEnvironment } = require("jest-environment-jsdom");
 const { displayCountDown } = require("../client/index.js");
 
 function setupDOM() {
