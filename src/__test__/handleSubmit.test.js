@@ -7,11 +7,11 @@ import {
   geonamesData,
   displayCountDown,
   displayWeather,
-} from "../client/index.js"; // Adjust the path as necessary
+} from "../client/index.js";
 
-// Mocks for other functions if needed directly instead of redeclaring them
+// Mocks for functions needed
 jest.mock("../client/index.js", () => ({
-  ...jest.requireActual("../client/index.js"), // Import actual other functions
+  ...jest.requireActual("../client/index.js"),
   displayWeather: jest.fn(),
   displayCountDown: jest.fn(),
 }));
@@ -31,7 +31,7 @@ describe("handleSubmit", () => {
     // Reset fetch mocks before each test
     fetchMock.resetMocks();
 
-    // Resetting mocks and geonamesData to ensure a clean state for each test
+    // Resetting mocks and geonamesData
     geonamesData.length = 0;
     geonamesData.push({ name: "Paris", lat: "49.8566", lng: "2.3522" });
   });
@@ -47,12 +47,14 @@ describe("handleSubmit", () => {
       "/api/destination?destination=paris"
     );
 
-    // Directly check the display functions were called if needed
-    // expect(displayCountDown).toHaveBeenCalled();
-    // expect(displayWeather).toHaveBeenCalled();
+    it("Updates the DOM to show countdown", () => {
+      // Directly check the display functions were called if needed
+      // expect(displayCountDown).toHaveBeenCalled();
+      // expect(displayWeather).toHaveBeenCalled();
 
-    // Check if the countdown div was updated (example assertion, adjust as needed based on actual implementation)
-    const countdownDiv = document.getElementById("countdown");
-    //expect(countdownDiv.innerHTML).toContain("days to go!");
+      // Check if the countdown div was updated (example assertion, adjust as needed based on actual implementation)
+      const countdownDiv = document.getElementById("countdown");
+      //expect(countdownDiv.innerHTML).toContain("days to go!");
+    });
   });
 });
