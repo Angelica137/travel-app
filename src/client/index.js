@@ -167,4 +167,5 @@ module.exports = {
   displayCountDown,
   showSuggestions,
   handleSubmit,
+  geonamesData,
 };
