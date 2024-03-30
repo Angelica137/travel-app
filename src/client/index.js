@@ -165,4 +165,5 @@ module.exports = {
   displayWeather,
   displayDestination,
   displayCountDown,
+  showSuggestions,
 };
