@@ -8,7 +8,7 @@
 }
 
 h1 {
-	font-size: 40px;
+	font-size: $font-h1;
 	margin: 0;
 	font-family: $font-stack;
 	font-weight: 400;
@@ -16,23 +16,23 @@ h1 {
 }
 
 h2 {
-	font-size: 32px;
+	font-size: $font-h2;
 	font-family: $font-stack;
-	font-weight: 400;
+	font-weight: $font-weight-main;
 }
 
 body {
 	font-family: $font-stack;
 	font-size: $font-body1;
-	font-weight: 400;
+	font-weight: $font-weight-main;
 }
 
 .data-display {
 	color: $text-primary;
 	text-align: left;
 	font-family: $font-stack;
-	font-size: 32px;
-	font-weight: 700;
+	font-size: $font-h2;
+	font-weight: $font-weight-heavy;
 	margin: 48px 16px;
 }
 
@@ -40,8 +40,8 @@ body {
 	color: $text-primary;
 	text-align: left;
 	font-family: $font-stack;
-	font-size: 32px;
-	font-weight: 400;
+	font-size: $font-h2;
+	font-weight: $font-weight-main;
 	margin: 48px 16px;
 }
 
@@ -51,35 +51,35 @@ body {
 		color: $text-primary;
 		font-family: Modak;
 		font-size: 36px;
-		font-weight: 400;
+		font-weight: $font-weight-main;
 		padding: 16px;
 	}
 	
 	h1 {
-		font-size: 28px;
+		font-size: $font-h1-mobile;
 		font-family: $font-stack;
-		font-weight: 400;
+		font-weight: $font-weight-main;
 	}
 	
 	h2 {
-		font-size: 24px;
+		font-size: $font-h2-mobile;
 		font-family: $font-stack;
 		font-size: normal;
-		font-weight: 400;
+		font-weight: $font-weight-main;
 	}
 	
 	body {
 		font-family: $font-stack;
 		font-size: $font-body1;
-		font-weight: 400;
+		font-weight: $font-weight-main;
 	}
 	
 	.data-display {
 		color: $text-primary;
 		text-align: left;
 		font-family: $font-stack;
-		font-size: 24px;
-		font-weight: 700;
+		font-size: $font-h2-mobile;
+		font-weight: $font-weight-heavy;
 		margin: 48px 16px;
 	}
 	
@@ -87,8 +87,8 @@ body {
 		color: $text-primary;
 		text-align: left;
 		font-family: $font-stack;
-		font-size: 24px;
-		font-weight: 400;
+		font-size: $font-h2-mobile;
+		font-weight: $font-weight-main;
 		margin: 48px 16px;
 	}
 }

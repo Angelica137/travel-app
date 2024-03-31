@@ -2,8 +2,6 @@
 @import url("./layout.scss");
 @import url("./typography.scss");
 
-
-
 @mixin flex-center {
 	display: flex;
 	justify-content: center;
@@ -27,13 +25,13 @@ input {
   margin: 24px 0px;
   font-size: $font-body1;
   font-family: $font-stack;
-  font-weight: 400;
+  font-weight: $font-weight-main;
   line-height: normal;
 }
 
 .button-main {
 	font-family: $font-stack;
-	font-weight: 800;
+	font-weight: $font-weight-cta;
 	font-size: 22px;
 	padding: 8px 8px 8px 8px;
 	margin: 8px;
