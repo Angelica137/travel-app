@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebPackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: "./src/client/index.js",
@@ -54,5 +55,8 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
+    new CopyWebPackPlugin({
+      patterns: [{ from: "src/service-worker.js", to: "" }],
+    }),
   ],
 };
