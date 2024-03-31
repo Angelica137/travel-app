@@ -15,7 +15,7 @@ Built with an Express server and Webpack for bundling
 - Weather forecast retrieval
 - Responsive design
 
-You can visit the live version of this app [[here](https://angelica137.github.io/travel-app/)](here).
+You can visit the live version of this app [here](https://angelica137.github.io/travel-app/).
 ## Setup
 This project requires Node.js installed in your local machine.
 
