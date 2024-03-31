@@ -14,6 +14,13 @@ html, body {
 	color: $text-primary;
 }
 
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 $container-padding;
+}
+
 input {
 	display: flex;
   height: 40px;
