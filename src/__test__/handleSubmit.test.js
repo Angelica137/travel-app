@@ -102,8 +102,3 @@ describe("handleSubmit", () => {
     expect(destinationDiv.innerHTML).toContain("Paris");
   });
 });
-
-// Try
-// Directly check the display functions were called if needed
-// expect(displayCountDown).toHaveBeenCalled();
-// expect(displayWeather).toHaveBeenCalled();
