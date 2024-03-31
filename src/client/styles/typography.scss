@@ -1,6 +1,6 @@
 /* Base styles */
 #logo {
-	color: #000;
+	color: $text-primary;
 	font-family: Modak;
 	font-size: 40px;
 	font-weight: 400;
@@ -28,7 +28,7 @@ body {
 }
 
 .data-display {
-	color: var(--Primary---main, #000);
+	color: $text-primary;
 	text-align: left;
 	font-family: $font-stack;
 	font-size: 32px;
@@ -37,7 +37,7 @@ body {
 }
 
 .data-display-light {
-	color: var(--Primary---main, #000);
+	color: $text-primary;
 	text-align: left;
 	font-family: $font-stack;
 	font-size: 32px;
@@ -48,7 +48,7 @@ body {
 /* Mobile styles */
 @media(max-width: 767px) {
 	#logo {
-		color: #000;
+		color: $text-primary;
 		font-family: Modak;
 		font-size: 36px;
 		font-weight: 400;
@@ -75,7 +75,7 @@ body {
 	}
 	
 	.data-display {
-		color: var(--Primary---main, #000);
+		color: $text-primary;
 		text-align: left;
 		font-family: $font-stack;
 		font-size: 24px;
@@ -84,7 +84,7 @@ body {
 	}
 	
 	.data-display-light {
-		color: var(--Primary---main, #000);
+		color: $text-primary;
 		text-align: left;
 		font-family: $font-stack;
 		font-size: 24px;
