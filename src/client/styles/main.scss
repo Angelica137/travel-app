@@ -1,11 +1,13 @@
 @import url("./layout.css");
 @import url("./typography.css");
 
-$border-color: #000000;
+$background-light: #ffffff;
+$input-border: 2px #000000;
 $text-primary: #000000;
 $font-stack: "Nunito Sans", Helvetica, Arial, sans-serif;
 $font-body1: 16px;
 $button-main: #F4C749;
+$button-main-hover: #efaf00;
 
 @mixin flex-center {
 	display: flex;
@@ -14,8 +16,9 @@ $button-main: #F4C749;
 }
 
 html, body {
-  font-family: $font-stack;
-  color: $text-primary;
+	margin: 0;
+	font-family: $font-stack;
+	color: $text-primary;
 }
 
 input {
@@ -23,18 +26,15 @@ input {
   height: 40px;
   padding: 0px 24px;
   width: 237px;
-  justify-content: center;
-  align-items: center;
   gap: 16px;
   border-radius: 40px;
-  border: 2px solid $border-color;
+  border: solid $input-border;
   margin: 24px 0px;
   font-size: $font-body1;
   font-family: $font-stack;
   font-weight: 400;
   line-height: normal;
 }
-
 
 .button-main {
 	font-family: $font-stack;
@@ -45,25 +45,21 @@ input {
 	width: 52px;
 	height:52px;
 	background-color: $button-main;
-	border: 2px solid $border-color;
+	border: solid $input-border;
 	border-radius: 100px;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	cursor: pointer;
 }
 
 .button-main:hover {
-	background-color: #efaf00;
+	background-color: $button-main-hover;
 }
 
 .card-media {
 	width: 595px;
   height: 651px;
   border-radius: 24px;
-  background: #FFF;
+  background: $background-light;
   margin-top: 120px;
   overflow: hidden;
 }
