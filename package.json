@@ -19,8 +19,9 @@
       "/node_modules/"
     ],
     "testEnvironment": "jsdom",
-		"setupFilesAfterEnv": ["<rootDir>/jest.setup.js"]
-
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -40,6 +41,7 @@
     "jest-fetch-mock": "^3.0.3",
     "jest-transform-stub": "^2.0.0",
     "mini-css-extract-plugin": "^2.8.1",
+    "sass": "^1.72.0",
     "sass-loader": "^14.1.1",
     "style-loader": "^3.3.4",
     "webpack": "^5.90.1",
