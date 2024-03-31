@@ -1,11 +1,11 @@
 @import "variables";
-@import url("./layout.scss");
-@import url("./typography.scss");
+@import "layout.scss";
+@import "typography.scss";
 
 @mixin flex-center {
 	display: flex;
 	justify-content: center;
-	align-items: cener;
+	align-items: center;
 }
 
 html, body {
