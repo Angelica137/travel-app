@@ -34,7 +34,7 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
-        test: /\.(png|jpe?g|gif)$/i, // Corrected typo 'gof' to 'gif' and 'jpeg?g' to 'jpe?g'
+        test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
             loader: "file-loader",
