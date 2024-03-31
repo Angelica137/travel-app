@@ -1,7 +1,103 @@
-// styles/main.scss
-$color-primary: blue;
+@import url("./layout.css");
+@import url("./typography.css");
 
-body {
-  font: 100% Helvetica, sans-serif;
-  color: $color-primary;
+$border-color: #000000;
+$text-primary: #000000;
+$font-stack: "Nunito Sans", Helvetica, Arial, sans-serif;
+$font-body1: 16px;
+$button-main: #F4C749;
+
+@mixin flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: cener;
 }
+
+html, body {
+  font-family: $font-stack;
+  color: $text-primary;
+}
+
+input {
+	display: flex;
+  height: 40px;
+  padding: 0px 24px;
+  width: 237px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border-radius: 40px;
+  border: 2px solid $border-color;
+  margin: 24px 0px;
+  font-size: $font-body1;
+  font-family: $font-stack;
+  font-weight: 400;
+  line-height: normal;
+}
+
+
+.button-main {
+	font-family: $font-stack;
+	font-weight: 800;
+	font-size: 22px;
+	padding: 8px 8px 8px 8px;
+	margin: 8px;
+	width: 52px;
+	height:52px;
+	background-color: $button-main;
+	border: 2px solid $border-color;
+	border-radius: 100px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.button-main:hover {
+	background-color: #efaf00;
+}
+
+.card-media {
+	width: 595px;
+  height: 651px;
+  border-radius: 24px;
+  background: #FFF;
+  margin-top: 120px;
+  overflow: hidden;
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 24px;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+@media(min-width: 768px) and (max-width: 1023px) {
+	.card-media {
+		width: 320px;
+	}
+}
+
+@media(max-width: 767px) {
+	.card-media {
+		width: 340px;
+		height: auto;
+		margin: 24px;
+	}
+
+	.card-media img {
+		max-height: 300px;
+		object-position: center;
+	}
+}
+
